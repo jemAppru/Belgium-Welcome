@@ -1,0 +1,114 @@
+:root {
+
+
+  color-scheme: light dark;
+  color: rgba(255, 255, 255, 0.87);
+  background-color: #242424;
+
+}
+
+@font-face {
+  font-family: "Proxi";
+  src: url("/public/ProximaNovaAlt-Sbold.otf");
+
+}
+
+@font-face {
+  font-family: "Proxi2";
+  src: url("/public/ProximaNovaAlt-Black.otf");
+
+}
+
+@font-face {
+  font-family: "Proxi3";
+  src: url("/public/ProximaNovaAlt-Reg.otf");
+
+}
+
+body {
+  margin: 0;
+  display: flex;
+  width: 1080px;
+  height: 1920px;
+  background-color: white;
+
+}
+
+#background-image {
+  top: 0;
+  left: 0;
+  position: relative;
+  max-width: 100%;
+  height: auto;
+  object-fit: none;
+
+}
+
+#background-copy {
+  top: 0;
+  left: 0;
+  position: absolute;
+  max-width: 100%;
+  height: auto;
+  object-fit: none;
+  z-index: 1;
+
+}
+
+#textbox {
+  position: absolute;
+  object-fit: none;
+  /* border-style: solid; */
+  border-radius: 5pt;
+  border-color: black;
+  width: 730px;
+  height: 365px;
+  z-index: 20;
+  top: 730px;
+  left: 170px
+}
+
+#first-name {
+  font-family: "Proxi";
+  font-size: 36pt;
+  top: 15px;
+  position: absolute;
+  letter-spacing: .3rem;
+  word-wrap: break-word;
+  line-height: 80px;
+
+  
+}
+
+#banner-loop {
+  border-style: solid;
+  border-color: black;
+  position: absolute;
+  width: 850px;
+  height: 100px;
+  top: 1123px;
+  left: 105px;
+  overflow: hidden;
+  white-space: nowrap;
+}
+
+.scrolling {
+  font-family: "Proxi";
+  font-size: 50pt;
+  letter-spacing: .6rem;
+  padding-left: 50px;
+  animation: marquee 4s linear infinite;
+  display: inline-block;
+  padding-right: 10px;
+
+}
+
+@keyframes marquee {
+  from {
+    transform: translateX(0);
+  }
+
+  to {
+    transform: translateX(-100%);
+  }
+}
