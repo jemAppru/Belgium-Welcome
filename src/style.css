@@ -61,33 +61,35 @@ body {
   /* border-style: solid; */
   border-radius: 5pt;
   border-color: black;
-  width: 730px;
-  height: 365px;
+  width: 740px;
+  height: 370px;
   z-index: 20;
   top: 730px;
   left: 170px
 }
 
-#first-name {
+.first-name {
   font-family: "Proxi";
-  font-size: 36pt;
-  top: 15px;
-  position: absolute;
+  /* border-style: solid; */
+  border-color: green;
+  font-size: 36pt;  
+  position: relative;
   letter-spacing: .3rem;
   word-wrap: break-word;
   line-height: 80px;
-
+  float: left;
+  /* bottom:10px */
   
 }
 
 #banner-loop {
-  border-style: solid;
+  /* border-style: solid; */
   border-color: black;
   position: absolute;
-  width: 850px;
+  width: 860px;
   height: 100px;
   top: 1123px;
-  left: 105px;
+  left: 98px;
   overflow: hidden;
   white-space: nowrap;
 }
