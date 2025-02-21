@@ -7,12 +7,9 @@ import viteLogo from '/vite.svg'
 console.log("javascript loaded")
 
 const myData0 = data[0].text
-const myData1  = data[1].text
-const myData2  = data[2].text
-const myData3 = data[3].text
-const myData4  = data[4].text
-const myData5  = data[5].text
-console.log(myData0)
+const myDataArray = data
+
+//console.log(myDataArray)
 
 function updateName(nameJSON){
     const newName = document.getElementById("first-name")
@@ -20,9 +17,7 @@ function updateName(nameJSON){
     newName.append(upperCase+" | ")
 }
 
-updateName(myData0)
-updateName(myData1)
-updateName(myData2)
-updateName(myData3)
-updateName(myData4)
-updateName(myData5)
+for (let i = 0; i < myDataArray.length; i++) {
+    console.log(myDataArray[i].text);
+    updateName(myDataArray[i].text);
+}
