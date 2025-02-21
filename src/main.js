@@ -13,16 +13,14 @@ console.log(myDataArray);
 
 //console.log(myDataArray)
 
-function updateName(nameJSON) {
-  const newName = document.getElementById("first-name");
+function updateName(nameJSON,param) {
+  const newName = document.getElementsByClassName("first-name")[0];
   const upperCase = nameJSON.toUpperCase();
-
   const div = document.createElement("div");
-  div.setAttribute("id","first-name")
+  div.setAttribute("class","first-name")
+  div.setAttribute("id",param)
   const node = document.createTextNode('\u00A0'+upperCase +" | ");
   div.appendChild(node);
-  newName.appendChild(div);
-
   newName.appendChild(div);
 
   console.log("worked");
@@ -32,7 +30,9 @@ function updateName(nameJSON) {
 // updateName(myData1);
 
 for (let i = 0; i < myDataArray.length; i++) {
-    console.log(myDataArray[i].text);
-    updateName(myDataArray[i].text);
+    const nameOutofArray = myDataArray[i].text
+    console.log("name= "+nameOutofArray);
+    
+    updateName(nameOutofArray,i);
 
 }
