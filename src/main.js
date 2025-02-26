@@ -1,15 +1,15 @@
-import "./style.css";
-import data from "/public/test.json" assert { type: "json" };
-import javascriptLogo from "./javascript.svg";
-import viteLogo from "/vite.svg";
+// import "./style.css";
+// import data from "/public/test.json" assert { type: "json" };
+// import javascriptLogo from "./javascript.svg";
+// import viteLogo from "/vite.svg";
 
 //upper limit is 12
 console.log("javascript loaded");
 
-const myData0 = data[0].text;
-const myData1 = data[1].text;
-const myDataArray = data;
-console.log(myDataArray);
+// const myData0 = data[0].text;
+// const myData1 = data[1].text;
+// const myDataArray = data;
+// console.log(myDataArray);
 
 //console.log(myDataArray)
 
@@ -26,13 +26,3 @@ function updateName(nameJSON,param) {
   console.log("worked");
 }
 
-// updateName(myData0);
-// updateName(myData1);
-
-for (let i = 0; i < myDataArray.length; i++) {
-    const nameOutofArray = myDataArray[i].text
-    console.log("name= "+nameOutofArray);
-    
-    updateName(nameOutofArray,i);
-
-}
