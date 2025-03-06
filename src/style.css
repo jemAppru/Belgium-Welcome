@@ -79,8 +79,9 @@ body {
   line-height: 80px;
   float: left;
   /* bottom:10px */
-  
+  opacity: 100;
 }
+
 
 #banner-loop {
   /* border-style: solid; */
