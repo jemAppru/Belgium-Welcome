@@ -5,7 +5,7 @@
 
 const DATA_MAX_AGE = 30;
 const REFRESH_RATE = 10;
-end_point = "https://www.ccplay.es/events/aoy/data/list_data.json";
+const end_point = "https://www.ccplay.es/events/aoy/data/list_data.json";
 console.log("javascript loaded");
 
 async function getData(url, position) {
@@ -105,7 +105,7 @@ timer = setInterval(() => {
             const newName = meda[i].text.toUpperCase();
             console.log(newName);
             newArr.push(" " + newName + " |");
-            if(newArr.length>=8){
+            if(newArr.length>=6){
                 newArr.pop()
             }
         }
