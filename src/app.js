@@ -9,29 +9,26 @@ const end_point = "https://www.ccplay.es/events/aoy/data/list_data.json";
 console.log("javascript loaded");
 
 async function getData(url, position) {
-    try {
-        const response = await fetch(url, {
-            cache: "no-store",
-            next: { revalidate: 5000 },
-        });
+  try {
+    const response = await fetch(url, {
+      cache: "no-store",
+      next: { revalidate: 5000 },
+    });
 
-        if (response.status >= 400) {
-
-            throw new Error("Bad response from server");
-        }
-
-        const data = await response.text();
-        const newdata = JSON.parse(data);
-        const newerdata = newdata[position].text;
-        const stringy = JSON.stringify(newerdata);
-        console.log("CALING ASYNC FUNCTION");
-
-        return newdata;
-    } catch (err) {
-
-
-        console.error(err);
+    if (response.status >= 400) {
+      throw new Error("Bad response from server");
     }
+
+    const data = await response.text();
+    const newdata = JSON.parse(data);
+    const newerdata = newdata[position].text;
+    const stringy = JSON.stringify(newerdata);
+    console.log("CALING ASYNC FUNCTION");
+
+    return newdata;
+  } catch (err) {
+    console.error(err);
+  }
 }
 // function updateName(nameJSON, param) {
 //     const newName = document.getElementsByClassName("first-name")[0];
@@ -47,14 +44,14 @@ async function getData(url, position) {
 // }
 
 function updateName(insertedName, id) {
-    const newName = document.getElementById(id);
-    const upperCase = insertedName.toUpperCase();
-    newName.innerHTML = "\u00A0" + upperCase + " | ";
+  const newName = document.getElementById(id);
+  const upperCase = insertedName.toUpperCase();
+  newName.innerHTML = "\u00A0" + upperCase + " | ";
 }
 
 function removeLastName(divID) {
-    const lastNameinList = document.getElementById(divID);
-    lastNameinList.remove();
+  const lastNameinList = document.getElementById(divID);
+  lastNameinList.remove();
 }
 
 // let timer;
@@ -71,7 +68,6 @@ function removeLastName(divID) {
 //             console.log("this is no. of divs!" + numOfDivs.length);
 
 //             console.log("ARRAY LENGTH! " + meta.length)
-
 
 //             if (i > 5) {
 //                 for (let j = 5; j < meta.length; j++) {
@@ -95,24 +91,37 @@ function removeLastName(divID) {
 
 //     })();
 // }, 1000);
+
 let timer;
 timer = setInterval(() => {
-    (async () => {
-        const meda = await getData(end_point, 0);
-        console.log(meda);
-        const newArr = [];
-        for (let i = 0; i < meda.length; i++) {
-            const newName = meda[i].text.toUpperCase();
-            console.log(newName);
-            newArr.push(" " + newName + " |");
-            if(newArr.length>=6){
-                newArr.pop()
-            }
-        }
-       
-            const newerArr = newArr.toString()
-            const test = newerArr.replaceAll(",", "");
-            console.log("the new arr" + test);
-            document.getElementById("blank").innerHTML = test;
-        })();
-}, 1000);
+  (async () => {
+    const meda = await getData(end_point, 0);
+    console.log(meda);
+    const newArr = [];
+    for (let i = 0; i < meda.length; i++) {
+      const newName = meda[i].text.toUpperCase();
+      console.log(newName);
+      newArr.push(" " + newName + " |");
+      if (newArr.length >= 7) {
+        newArr.pop();
+      }
+    }
+
+    const newerArr = newArr.toString();
+    const test = newerArr.replaceAll(",", "");
+    const singleWord = test.split(" ")
+    console.log("the new arr" + newArr[0]);
+    document.getElementById("blank").innerHTML = test
+    
+    //type writer effect
+    // let i = 0;
+    // const speed = 50;
+    // function typeWriter() {
+    //   if (i < newArr[0].length) {
+    //     document.getElementById("blank").innerHTML += newArr[0].charAt(i);
+    //     i++;
+    //     setTimeout(typeWriter, speed);
+    //   }
+    // }typeWriter()
+  })();
+}, 5000);
