@@ -3,8 +3,6 @@
 // import javascriptLogo from "./javascript.svg";
 // import viteLogo from "/vite.svg";
 
-const DATA_MAX_AGE = 30;
-const REFRESH_RATE = 10;
 const end_point = "https://www.ccplay.es/events/aoy/data/list_data.json";
 console.log("javascript loaded");
 
@@ -102,14 +100,16 @@ timer = setInterval(() => {
       const newName = meda[i].text.toUpperCase();
       console.log(newName);
       newArr.push(" " + newName + " |");
-      if (newArr.length >= 7) {
+      const charNo = newArr.join("").length;
+      console.log("char number= "+ charNo )
+      if (charNo >= 85) {
         newArr.pop();
       }
     }
 
     const newerArr = newArr.toString();
     const test = newerArr.replaceAll(",", "");
-    const singleWord = test.split(" ")
+   
     console.log("the new arr" + newArr[0]);
     document.getElementById("blank").innerHTML = test
     
