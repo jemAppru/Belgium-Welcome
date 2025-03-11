@@ -129,7 +129,7 @@ timer = setInterval(() => {
       newArr.push(" " + newName + " |");
       const charNo = newArr.join("").length;
       console.log("char number= "+ charNo )
-      if (charNo >= 85) {
+      if (charNo >= 80) {
         newArr.pop();
       }
     }
