@@ -4,7 +4,11 @@
 // import viteLogo from "/vite.svg";
 
 const end_point = "https://www.ccplay.es/events/aoy/data/list_data.json";
+let DEMO;
 console.log("javascript loaded");
+// demo mode, when client is not a player
+if (typeof BroadSignObject === 'undefined') DEMO = true;
+if (DEMO) setTimeout(() => (BroadSignPlay()), 1000);
 
 async function getData(url, position) {
   try {
@@ -28,6 +32,23 @@ async function getData(url, position) {
     console.error(err);
   }
 }
+function BroadSignPlay() {
+ 
+  // run getData again but with shorter maxAge
+  // i.e. update the data in localStorage while the ad
+  // plays so that is it fresh for next playback 
+  const res = getData(end_point,0);
+
+  return res;
+
+ 
+};
+
+
+// demo mode, when client is not a player
+
+
+
 // function updateName(nameJSON, param) {
 //     const newName = document.getElementsByClassName("first-name")[0];
 //     const upperCase = nameJSON.toUpperCase();
@@ -41,16 +62,16 @@ async function getData(url, position) {
 //     console.log("worked");
 // }
 
-function updateName(insertedName, id) {
-  const newName = document.getElementById(id);
-  const upperCase = insertedName.toUpperCase();
-  newName.innerHTML = "\u00A0" + upperCase + " | ";
-}
+// function updateName(insertedName, id) {
+//   const newName = document.getElementById(id);
+//   const upperCase = insertedName.toUpperCase();
+//   newName.innerHTML = "\u00A0" + upperCase + " | ";
+// }
 
-function removeLastName(divID) {
-  const lastNameinList = document.getElementById(divID);
-  lastNameinList.remove();
-}
+// function removeLastName(divID) {
+//   const lastNameinList = document.getElementById(divID);
+//   lastNameinList.remove();
+// }
 
 // let timer;
 // timer = setInterval(() => {
@@ -93,7 +114,13 @@ function removeLastName(divID) {
 let timer;
 timer = setInterval(() => {
   (async () => {
-    const meda = await getData(end_point, 0);
+    let meda; 
+    if(DEMO== true){
+      console.log("DEMO mode")
+      meda = await getData(end_point, 0);
+    }else{
+      meda = await BroadSignPlay();
+    }
     console.log(meda);
     const newArr = [];
     for (let i = 0; i < meda.length; i++) {
