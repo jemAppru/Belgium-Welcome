@@ -76,11 +76,13 @@ body {
   position: relative;
   letter-spacing: .3rem;
   word-wrap: break-word;
-  line-height: 80px;
+  line-height: 85px;
   float: left;
   /* bottom:10px */
+  opacity: 100;
   
 }
+
 
 #banner-loop {
   /* border-style: solid; */
